@@ -1,43 +1,32 @@
 package com.step.manali;
 
 public class Assert{
-  public static void equal(Object a, Object b, String text) {
-    boolean result = a.equals(b);
+  private static void showResult(boolean result, String actual, String expected, String text){
     String resultString = "✅ " + text;
     if(!result){
       resultString = "❌ " + text;
-      resultString += "\nActual: " + a + "\nExpected: " + b + "\n";
+      resultString += "\nActual: " + actual + "\nExpected: " + expected + "\n";
     }
     System.out.println(resultString);
   }
 
-  public static void equal(int a, int b, String text) {
-    boolean result = a == b;
-    String resultString = "✅ " + text;
-    if(!result){
-      resultString = "❌ " + text;
-      resultString += "\nActual: " + a + "\nExpected: " + b + "\n";
-    }
-    System.out.println(resultString);
+  public static void equal(Object actual, Object expected, String text) {
+    boolean result = actual.equals(expected);
+    Assert.showResult(result, actual.toString(), expected.toString(), text);
   }
 
-  public static void equal(double a, double b, String text) {
-    boolean result = a == b;
-    String resultString = "✅ " + text;
-    if(!result){
-      resultString = "❌ " + text;
-      resultString += "\nActual: " + a + "\nExpected: " + b + "\n";
-    }
-    System.out.println(resultString);
+  public static void equal(int actual, int expected, String text) {
+    boolean result = actual == expected;
+    Assert.showResult(result, Integer.toString(actual), Integer.toString(expected), text);
   }
 
-  public static void equal(String a, String b, String text) {
-    boolean result = a.equals(b);
-    String resultString = "✅ " + text;
-    if(!result){
-      resultString = "❌ " + text;
-      resultString += "\nActual: " + a + "\nExpected: " + b + "\n";
-    }
-    System.out.println(resultString);
+  public static void equal(double actual, double expected, String text) {
+    boolean result = actual == expected;
+    Assert.showResult(result, Double.toString(actual), Double.toString(expected), text);
+  }
+
+  public static void equal(String actual, String expected, String text) {
+    boolean result = actual.equals(expected);
+    Assert.showResult(result, actual, expected, text);
   }
 }
